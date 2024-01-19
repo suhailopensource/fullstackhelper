@@ -1,0 +1,117 @@
+.dashboard-product-box {
+    background-color: white;
+    padding: 2rem;
+    overflow: auto;
+    @include square(100%);
+  }
+
+  @mixin square($s: 1rem) {
+    height: $s;
+    width: $s;
+  }
+
+  @mixin heading($spacing: 3px, $weight: 300, $case: uppercase) {
+    letter-spacing: $spacing;
+    font-weight: $weight;
+    text-transform: $case;
+  }
+
+
+
+
+  .table-pagination {
+    @include flex;
+    padding: 2rem;
+    > button {
+      padding: 0.5rem 1rem;
+      border: none;
+      outline: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: rgba(0, 115, 255);
+      color: white;
+      &:disabled {
+        background-color: rgba(0, 115, 255, 0.1);
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  @mixin flex(
+  $dir: row,
+  $justifyContent: center,
+  $alignItems: center,
+  $gap: 1rem
+) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  gap: $gap;
+}
+
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: bold;
+    color: #0000009e;
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 2rem 1rem;
+  }
+
+  tbody {
+    tr {
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.093);
+    }
+
+    td {
+      padding: 1rem;
+
+      img {
+        width: 4rem;
+        height: 4rem;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+      a {
+        text-decoration: none;
+        background-color: rgba(44, 104, 255, 0.455);
+        color: rgba(44, 104, 255);
+        padding: 0.25rem 0.5rem;
+        border-radius: 10px;
+      }
+      button {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.1rem;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        cursor: pointer;
+        color: rgb(255, 44, 44);
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
