@@ -1,0 +1,19 @@
+https://docs.uploadthing.com/getting-started/appdir - uploadthig with next js 
+follow it 
+in api folder create app/api/uploadthing/core.ts core.ts
+and pasteits code 
+
+then create app/api/uploadthing/route.ts 
+and paste it s code 
+
+
+src/utils/uploadthing.ts paset the componenets
+
+add styles to tailwind config 
+
+dont forget to add nextSSR for server side rendering 
+
+env variables must for uploadthing 
+UPLOADTHING_SECRET='sk_live_e3807d20d88a89d5843e5cc'
+UPLOADTHING_APP_ID='oys021'
+UPLOADTHING_TOKEN='eyJhcGlLZXkiOiJza19saXZlX2UzFkYmZhZjZizAyZWhiazEiLCJyZWdpb25zIjpbInNlYTEiXX0='

@@ -1,0 +1,35 @@
+https://supabase.com/partners/integrations/prisma  - helps in integrating supabae with prisma
+https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-articles/nextjs-prisma-client-dev-practices#:~:text=Best%20practice%20for%20instantiating%20Prisma%20Client%20with%20Next.js. - helps in troubleshooting sholution and best practices
+npm i -D prisma
+npm i @prisma/client
+npx prisma init
+ npx prisma db push - used o push to supabase
+
+
+ supaase requires two urls  in env a transaction ur and a session url 
+ DATABASE_URL="" # Set this to the Transaction connection pooler string you copied in Step 1
+DIRECT_URL=""  # Set this to the Session connection pooler string you copied in Step 1
+
+and dont forget to add ?pgbouncer=true&connection_limit=1 at the end of the DATABASE_URL (see in links) 
+
+always sue and import prisma from a db.ts file which has the code to avoid multiple instances of prisma 
+{
+    import { PrismaClient } from "@prisma/client";
+
+const prismaClientSingleton = () => {
+  return new PrismaClient();
+};
+
+declare const globalThis: {
+  prismaGlobal: ReturnType<typeof prismaClientSingleton>;
+} & typeof global;
+
+const prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
+
+export default prisma;
+
+if (process.env.NODE_ENV !== "production") globalThis.prismaGlobal = prisma;
+
+}
+
+
