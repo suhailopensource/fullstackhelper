@@ -1,0 +1,16 @@
+https://tiptap.dev/
+https://tiptap.dev/docs/editor/getting-started/install/nextjs#page-title
+
+
+for the heading H1 typography to work we need plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")], this to add in tailwind .config.ts
+
+
+we need to create a MenuBar and editor spearately 
+
+
+Usage 
+ <div className="flex flex-col gap-y-2">
+                            <Label>Desciption</Label>
+                            <TipTapEditor />
+
+                        </div>
