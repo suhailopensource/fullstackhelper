@@ -8,9 +8,11 @@ for the heading H1 typography to work we need plugins: [require("tailwindcss-ani
 we need to create a MenuBar and editor spearately 
 
 
-Usage 
+Usage  
+ const [json, setJson] = useState<null | JSONContent>(null)
  <div className="flex flex-col gap-y-2">
                             <Label>Desciption</Label>
-                            <TipTapEditor />
+                                   <TipTapEditor json={json} setJson={setJson} />
+                                     
 
                         </div>
