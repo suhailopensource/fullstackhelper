@@ -1,0 +1,33 @@
+helps is form validation 
+  1st u gotta create  a schema for the zod object tosafeparse against 
+  like this 
+  ----const productSchema = z.object({
+  name: z
+    .string()
+    .min(3, { message: "The name has to be a min charackter length of 5" }),
+  category: z.string().min(1, { message: "Category is required" }),
+  price: z.number().min(1, { message: "The Price has to be bigger then 1" }),
+  smallDescription: z
+    .string()
+    .min(10, { message: "Please summerize your product more" }),
+  description: z.string().min(10, { message: "Description is required" }),
+  images: z.array(z.string(), { message: "Images are required" }),
+  productFile: z
+    .string()
+    .min(1, { message: "Pleaes upload a zip of your product" }),
+});
+
+
+
+2nd u have to safeParse and validate 
+  const validateFields = productSchema.safeParse({
+    name: formData.get("name"),
+    category: formData.get("category"),
+    price: Number(formData.get("price")),
+    smallDescription: formData.get("smallDescription"),
+    description: formData.get("description"),
+    images: JSON.parse(formData.get("images") as string),
+    productFile: formData.get("productFile"),
+  });
+
+

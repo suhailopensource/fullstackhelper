@@ -16,3 +16,9 @@ Usage
                                      
 
                         </div>
+
+
+
+                        for showing the content u can use    <ProductDescription content={data?.description as JSONContent} /> 
+
+                        and the file ShowContentsomewhere else
